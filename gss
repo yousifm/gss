@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+def touch(path):
+	with open(path, 'a'):
+		os.utime(path, None)
+
+
+if len(sys.argv) != 2:
+	print('Usage: gss <folder name>')
+	exit(-1)
+
+else:
+	try:
+		os.mkdir(sys.argv[1])
+		os.chdir(sys.argv[1])
+
+		folders = ['scripts/',
+					'styles/',
+					'styles/resources/',
+					'styles/resources/images/']
+
+		files = ['scripts/script.js',
+				 'styles/styles.css']
+
+		for folder in folders:
+			os.mkdir(folder)
+
+		for file in files:
+			touch(file)
+
+		with open('index.html', 'w') as index, open('indextemplate.html','r') as template:
+			index.write(template.read())
+
+	except PermissionError as e:
+		print (e)
+
+	except FileExistsError:
+		print ('File Exists: \'' + sys.argv[1] + '\'')
