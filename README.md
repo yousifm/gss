@@ -3,6 +3,7 @@ automate website folder structure
 
 Simple script to automatically generate a folder with this structure:
 
+```
 folder_name
   | resources
       | css
@@ -15,5 +16,6 @@ folder_name
   | vendors
   
   index.html
-  
+```
+
 and copying the contents of indextemplate.html to index.html
