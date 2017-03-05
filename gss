@@ -17,13 +17,15 @@ else:
 		os.mkdir(sys.argv[1])
 		os.chdir(sys.argv[1])
 
-		folders = ['scripts/',
-					'styles/',
-					'styles/resources/',
-					'styles/resources/images/']
+		folders = ['resources/',
+					'resources/js/',
+					'resources/css/',
+					'resources/images/',
 
-		files = ['scripts/script.js',
-				 'styles/styles.css']
+					'vendors/']
+
+		files = ['resources/js/script.js',
+				 'resources/css/styles.css']
 
 		for folder in folders:
 			os.mkdir(folder)
@@ -31,7 +33,7 @@ else:
 		for file in files:
 			touch(file)
 
-		with open('index.html', 'w') as index, open('indextemplate.html','r') as template:
+		with open('index.html', 'w') as index, open('/usr/local/etc/gssdata/indextemplate.html','r') as template:
 			index.write(template.read())
 
 	except PermissionError as e:
