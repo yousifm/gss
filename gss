@@ -24,8 +24,8 @@ else:
 
 					'vendors/']
 
-		files = ['resources/js/script.js',
-				 'resources/css/styles.css']
+		files = ['resources/js/main.js',
+				 'resources/css/style.css']
 
 		for folder in folders:
 			os.mkdir(folder)
